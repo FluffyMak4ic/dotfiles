@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo "Install apps"
-pacman -Syy i3-wm i3-gaps i3status sbxkb dmenu pcmanfm ttf-font-awesome feh lxappearance gvfs udiskie xorg-xbacklight ristretto tumbler picom rofi xfce4-terminal wget git curl zsh ttf-liberation ttf-dejavu 
+sudo pacman -Syy i3-wm i3-gaps i3status sbxkb dmenu pcmanfm ttf-font-awesome feh lxappearance gvfs udiskie xorg-xbacklight ristretto tumbler picom rofi xfce4-terminal wget git curl zsh ttf-liberation ttf-dejavu 
 echo "Install yay"
 wget git.io/yay-install.sh && sh yay-install.sh
 yay -Syy nerd-fonts-fira-code
