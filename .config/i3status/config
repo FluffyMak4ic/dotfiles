@@ -1,0 +1,85 @@
+general {
+  output_format = "i3bar"
+  markup = pango
+  colors = true
+  color_good = "#24B396"
+  color_degraded = "#FFD631"
+  color_bad = "#DD5B7E"
+  interval = 2 
+}
+order += "disk /"
+order += "disk /home"
+order += "cpu_temperature 0"
+order += "cpu_usage"
+order += "memory"
+order += "tztime local"
+order += "volume master"
+order += "ethernet _first_"
+order += "wireless _first_"
+order += "battery 0"
+
+disk "/" {
+        format = "<span foreground='#017872'></span><span background='#017872' foreground='#0C0C0C'>  /:%free </span>"
+        separator = false
+        separator_block_width = 0
+}
+disk "/home" {
+        format = "<span background='#017872' foreground='#980000'></span><span background='#980000' foreground='#0C0C0C'>  /home:%free </span>"
+        separator = false
+        separator_block_width = 0
+}
+cpu_temperature 0 {
+        format = "<span background='#980000' foreground='#BD6636'></span><span background='#BD6636' foreground='#0C0C0C'>  TEM:%degrees°C </span>"
+        separator = false
+        separator_block_width = 0
+}
+cpu_usage {
+        format = "<span background='#BD6636' foreground='#478A38'></span><span background='#478A38' foreground='#0C0C0C'>  CPU:%usage </span>"
+        separator = false
+        separator_block_width = 0
+}
+memory {
+        format = "<span background='#478A38' foreground='#4F4FB3'></span><span background='#4F4FB3' foreground='#0C0C0C'>  MEM:%percentage_used </span>"
+        threshold_degraded = "1.4G"
+        format_degraded = "MEM %used"
+        separator = false
+        separator_block_width = 0
+}    
+tztime local {
+		format = "<span background='#4F4FB3' foreground='#a38500'></span><span background='#a38500' foreground='#0C0C0C' > %time </span>"
+        format_time = " %a %-d %b   %H:%M"
+        separator = false
+        separator_block_width = 0
+}
+volume master {
+        format = "<span background='#a38500' foreground='#80007e'></span><span background='#80007e' foreground='#0C0C0C'>  %volume </span>"
+        device = "default"
+        mixer = "Master"
+        mixer_idx = 0
+        separator = false
+        separator_block_width = 0
+}
+ethernet _first_ {
+        format_up =   "<span background='#80007e' foreground='#457DC0'></span><span background='#457DC0' foreground='#0C0C0C' >  %speed </span>"
+        format_down = "<span background='#80007e' foreground='#457DC0'></span><span background='#457DC0' foreground='#0C0C0C' >  down </span>"
+        separator = false
+        separator_block_width = 0
+}
+wireless _first_ {
+        format_up =   "<span background='#457DC0' foreground='#0C0C0C' > %quality </span>"
+        format_down = "<span background='#457DC0' foreground='#0C0C0C' >  down </span>"
+        separator = false
+        separator_block_width = 0
+}
+battery 0 {
+        format = "<span background='#457DC0' foreground='#668B8B'></span><span background='#668B8B' foreground='#0C0C0C' > %status %percentage %remaining %emptytime </span>"
+        format_down = "<span background='#457DC0' foreground='#668B8B'></span><span background='#668B8B' foreground='#0C0C0C' > No battary </span>"
+        status_chr = "⚡ CHR"
+        status_bat = "  BAT"
+        status_unk = "? UNK"
+        status_full = "  FULL"
+        path = "/sys/class/power_supply/BAT%d/uevent"
+        low_threshold = 10
+        separator = false
+        separator_block_width = 0
+}
