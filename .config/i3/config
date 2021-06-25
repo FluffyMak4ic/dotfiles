@@ -168,4 +168,4 @@ exec --no-startup-id flameshot
 
 exec setxkbmap "us,ru" "" "grp:alt_shift_toggle"
 
-exec --no-startup-id feh --bg-fill ~/Pictures/fox.jpg
+#exec --no-startup-id feh --bg-fill ~/Pictures/fox.jpg
